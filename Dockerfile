@@ -18,9 +18,6 @@ ENV KBUILD_BUILD_USER=adrian
 ENV KBUILD_BUILD_HOST=lillia
 ENV PATH="/tmp/toolchain/bin:$PATH"
 
-# Cleanup remains of old builds
-RUN make mrproper LLVM=1 LLVM_IAS=1 && rm -rf out/
-
 # Make the config
 RUN make O=out ARCH=arm64 LLVM=1 LLVM_IAS=1 davinci_defconfig
 
